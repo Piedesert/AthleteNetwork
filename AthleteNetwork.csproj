@@ -8,4 +8,8 @@
     <None Remove="errorhandling.txt" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
+  </ItemGroup>
+
 </Project>

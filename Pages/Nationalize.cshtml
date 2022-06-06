@@ -1,0 +1,27 @@
+﻿@page "/nationalize"
+@model AthleteNetwork.Pages.NationalizeModel
+@{
+
+}
+<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Nationalization Probability</title>
+	</head>
+	<body>
+		<h1>Discover Nationalization Probability Of People's Names</h1>
+		<form action="GetAsync" method="GET">
+			<label>Enter a name or list of names separate by a comma(,):</label>
+			<br />
+			<input type="text" id="person-name" placeholder="Name">
+			<br />
+			<input type="submit" value="Submit" class="btn btn-default" />
+		</form>
+
+	@foreach (var person in Model.People)
+	{
+		<h2>@person</h2>
+	}
+	</body>
+	</html>

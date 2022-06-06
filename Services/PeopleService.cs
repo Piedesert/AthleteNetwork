@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -25,7 +26,7 @@ namespace AthleteNetwork.Services
 
         //private string NationalizeJson => 
 
-        public async IAsyncEnumerable<Person> GetPeopleAsync(string[] people)
+        public async IAsyncEnumerable<Person> GetPeopleAsync(string[] names)
         {
             string name;
             string api;
@@ -62,7 +63,7 @@ namespace AthleteNetwork.Services
             }
             else
             {
-                string names;
+                string[] names;
                 api = "https://api.nationalize.io?";
 
                 foreach (var personName in people)
@@ -93,25 +94,25 @@ namespace AthleteNetwork.Services
 
         }*/
 
-      /*  static async Task<Uri> CreateProductAsync(Person person)
+        public async Task Test()
         {
-            using var httpClient = new HttpClient();
-            HttpResponseMessage response = await httpClient.PostAsync(
-                "api/person", );
-            response.EnsureSuccessStatusCode();
-
-            // return URI of the created resource.
-            return response.Headers.Location;
-        }*/
-
-        public static async Task Test()
-        {
+            string errorString;
+            Nationalize nick;
             string url = "https://api.nationalize.io?name=Nick";
             using var httpClient = new HttpClient();
 
             try
             {
-                var httpResponseMessage = await httpClient.GetAsync(url);
+                HttpResponseMessage response = await httpClient.GetAsync(url);
+                if (response.IsSuccessStatusCode)
+                {
+                    nick = await response.Content.ReadFromJsonAsync<Nationalize>();
+                    errorString = null;
+                }
+                else
+                {
+                    errorString = $"There was an error submitting: { response.ReasonPhrase}";
+                }
             }
             catch (Exception e)
             {

@@ -12,13 +12,14 @@
 		<link rel="stylesheet" href="css/site.css" />
 	</head>
 	<body>
-		<h1>Discover Nationalization Probability</h1>
-		@using (Html.BeginForm("SubmitNames", "SubmitNames", FormMethod.Get))
-		{
-			<h3>Submit Name's Of People</h3>
-			<input type="text" id="person-name" placeholder="New person">
-			<input type="submit" value="Add" class="btn btn-default">
-		}
+		<h1>Discover Nationalization Probability Of People's Names</h1>
+		<form action="SubmitAsync" method="post">
+			<label>Enter a name or list of names separate by a comma(,):</label>
+			<br />
+			<input type="text" id="person-name" placeholder="Name">
+			<br />
+			<input type="submit" value="Submit" class="btn btn-default" />
+		</form>
 		<p id="counter"></p>
 
 		<table>
@@ -30,14 +31,13 @@
 			<tbody id="people"></tbody>
 		</table>
 	</body>
-	</html>
+	</html>*@
 
-	@foreach (var person in Model.People)
+	@*@foreach (var person in Model.People)
 	{
 		<h2>
 			@person.Name;
 			@person.Country.Id;
 			@person.Country.Probability;
 		</h2>
-	}
-*@
+	}*@

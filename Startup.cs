@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
+using AthleteNetwork.Models;
 using AthleteNetwork.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,7 +29,7 @@ namespace AthleteNetwork
         {
             services.AddRazorPages();
             services.AddControllers();
-            services.AddTransient<PeopleService>();
+            services.AddTransient<NationalizeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,11 +58,11 @@ namespace AthleteNetwork
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
                 // This is another method, but it is a bit verbose and not separating out the tasks
-                //endpoints.MapGet("/nationalize", (context) =>
-                //{
-                //    var people = app.ApplicationServices.GetService<NationalizeService>().GetPeople();
-                //    return context.Response.WriteAsync(people.ToString());
-                //});
+                /*endpoints.MapGet("/nationalize", (context) =>
+				{
+					var people = app.ApplicationServices.GetService<NationalizeService>().GetPeopleAsync();
+                    return context.Response.WriteAsync(people.ToString());
+                });*/
             });
         }
     }
