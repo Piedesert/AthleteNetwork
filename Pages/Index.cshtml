@@ -1,10 +1,47 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+	ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">WE DO THIS 'ISH</h1>
-    <p><a href="https://docs.microsoft.com/aspnet/core">LFG</a>!!!!</p>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Nationalization Probability</title>
+	<link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+	<h1>Discover Nationalization Probability</h1>
+	<h3>Submit Name's Of People</h3>
+	<form action="javascript:void(0);" method="GET" onsubmit="getPeoplpe()">
+		<input type="text" id="person-name" placeholder="New person">
+		<input type="submit" value="Add">
+	</form>
+
+	<p id="counter"></p>
+
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Country</th>
+			<th>Probability</th>
+		</tr>
+		<tbody id="people"></tbody>
+	</table>
+
+	<script src="js/site.js" asp-append-version="true"></script>
+	<script type="text/javascript">
+        getPeople();
+	</script>
+</body>
+</html>
+
+@foreach (var person in Model.People)
+{
+	<h2>
+		@person.Name;
+		@person.Country.Id;
+		@person.Country.Probability;
+	</h2>
+}
