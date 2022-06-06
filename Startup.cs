@@ -26,6 +26,7 @@ namespace AthleteNetwork
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddControllers();
             services.AddTransient<NationalizeService>();
         }
 
@@ -53,11 +54,13 @@ namespace AthleteNetwork
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
-                endpoints.MapGet("/nationalize", (context) =>
-                {
-                    var people = app.ApplicationServices.GetService<NationalizeService>().GetPeople();
-                    return context.Response.WriteAsync(people.ToString());
-                });
+                endpoints.MapControllers();
+                // This is another method, but it is a bit verbose and not separating out the tasks
+                //endpoints.MapGet("/nationalize", (context) =>
+                //{
+                //    var people = app.ApplicationServices.GetService<NationalizeService>().GetPeople();
+                //    return context.Response.WriteAsync(people.ToString());
+                //});
             });
         }
     }

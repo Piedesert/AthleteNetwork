@@ -13,12 +13,12 @@
 </head>
 <body>
 	<h1>Discover Nationalization Probability</h1>
-	<h3>Submit Name's Of People</h3>
-	<form action="javascript:void(0);" method="GET" onsubmit="getPeoplpe()">
+	@using (Html.BeginForm("SubmitNames", "SubmitNames", FormMethod.Get))
+	{
+		<h3>Submit Name's Of People</h3>
 		<input type="text" id="person-name" placeholder="New person">
-		<input type="submit" value="Add">
-	</form>
-
+		<input type="submit" value="Add" class="btn btn-default">
+	}
 	<p id="counter"></p>
 
 	<table>
@@ -29,11 +29,6 @@
 		</tr>
 		<tbody id="people"></tbody>
 	</table>
-
-	<script src="js/site.js" asp-append-version="true"></script>
-	<script type="text/javascript">
-        getPeople();
-	</script>
 </body>
 </html>
 

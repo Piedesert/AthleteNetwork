@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AthleteNetwork.Controllers;
 using AthleteNetwork.Models;
 using AthleteNetwork.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +24,7 @@ namespace AthleteNetwork.Pages
             NationalizeService = nationalizeService;
         }
 
-        public void OnGet()
+        public void Submit()
         {
             foreach (var person in people.Split(','))
             {
@@ -31,7 +32,7 @@ namespace AthleteNetwork.Pages
                 if (int.TryParse(person, out num))
                     yield return num;
             }
-            People = NationalizeService.GetPeople();
+            People = PeopleController.GetPeople(people);
         }
     }
 }
