@@ -14,17 +14,19 @@ namespace AthleteNetwork.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        public NationalizeService NationalizeService;
+        public PeopleService PeopleService;
         public IEnumerable<Person> People { get; private set; }
 
         public IndexModel(ILogger<IndexModel> logger,
-            NationalizeService nationalizeService)
+            PeopleService peopleService)
         {
             _logger = logger;
-            NationalizeService = nationalizeService;
+            PeopleService = peopleService;
         }
 
-        public void Submit()
+        static async Task TestAsync() => await PeopleService.Test();
+
+        /*public void Submit()
         {
             foreach (var person in people.Split(','))
             {
@@ -33,6 +35,6 @@ namespace AthleteNetwork.Pages
                     yield return num;
             }
             People = PeopleController.GetPeople(people);
-        }
+        }*/
     }
 }

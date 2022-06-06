@@ -13,18 +13,18 @@ namespace AthleteNetwork.Controllers
     [ApiController]
     public class PeopleController : ControllerBase
     {
-        public PeopleController(NationalizeService nationalizeService)
+        /*public PeopleController(PeopleService peopleService)
         {
-            this.NationalizeService = nationalizeService;
+            this.PeopleService = peopleService;
         }
 
-        public NationalizeService NationalizeService { get; }
+        public PeopleService PeopleService { get; }
 
         [HttpGet]
         public IEnumerable<Person> GetPeople(string[] people)
         {
-            return (IEnumerable<Person>)NationalizeService.GetPeopleAsync(people);
-        }
+            return (IEnumerable<Person>)PeopleService.GetPeopleAsync(people);
+        }*/
 
     }
 }

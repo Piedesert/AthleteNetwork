@@ -27,7 +27,7 @@ namespace AthleteNetwork
         {
             services.AddRazorPages();
             services.AddControllers();
-            services.AddTransient<NationalizeService>();
+            services.AddTransient<PeopleService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -4,39 +4,40 @@
 	ViewData["Title"] = "Home page";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Nationalization Probability</title>
-	<link rel="stylesheet" href="css/site.css" />
-</head>
-<body>
-	<h1>Discover Nationalization Probability</h1>
-	@using (Html.BeginForm("SubmitNames", "SubmitNames", FormMethod.Get))
+@*<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Nationalization Probability</title>
+		<link rel="stylesheet" href="css/site.css" />
+	</head>
+	<body>
+		<h1>Discover Nationalization Probability</h1>
+		@using (Html.BeginForm("SubmitNames", "SubmitNames", FormMethod.Get))
+		{
+			<h3>Submit Name's Of People</h3>
+			<input type="text" id="person-name" placeholder="New person">
+			<input type="submit" value="Add" class="btn btn-default">
+		}
+		<p id="counter"></p>
+
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Country</th>
+				<th>Probability</th>
+			</tr>
+			<tbody id="people"></tbody>
+		</table>
+	</body>
+	</html>
+
+	@foreach (var person in Model.People)
 	{
-		<h3>Submit Name's Of People</h3>
-		<input type="text" id="person-name" placeholder="New person">
-		<input type="submit" value="Add" class="btn btn-default">
+		<h2>
+			@person.Name;
+			@person.Country.Id;
+			@person.Country.Probability;
+		</h2>
 	}
-	<p id="counter"></p>
-
-	<table>
-		<tr>
-			<th>Name</th>
-			<th>Country</th>
-			<th>Probability</th>
-		</tr>
-		<tbody id="people"></tbody>
-	</table>
-</body>
-</html>
-
-@foreach (var person in Model.People)
-{
-	<h2>
-		@person.Name;
-		@person.Country.Id;
-		@person.Country.Probability;
-	</h2>
-}
+*@

@@ -3,7 +3,7 @@
 
 // Write your JavaScript code.
 
-const uri = 'https://api.nationalize.io';
+/*const uri = 'https://api.nationalize.io';
 let people = [];
 
 
@@ -45,4 +45,4 @@ function _displayPeople(data) {
     });
 
     people = data;
-}
+}*/
